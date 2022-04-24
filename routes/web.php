@@ -20,3 +20,14 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/admin/home', [App\Http\Controllers\Admin\AdminHomeController::class, 'index']);
+
+Route::group([
+    "prefix"=>"admin",
+    'namespace' => 'App\Http\Controllers\Admin\Auth',
+],function () {
+    Route::get('/login','LoginController@showLoginForm')->name('admin.login');
+    Route::post('/login','LoginController@login')->name('admin.login');
+    Route::post('/logout','LoginController@logout');
+    Route::post('/login','LoginController@login');
+});
