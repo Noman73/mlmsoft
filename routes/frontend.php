@@ -8,4 +8,10 @@ Route::group([
 ],function () {
     Route::resource('/registration','CustomerController');
     Route::post('/get-refferal','CustomerController@getCustomer');
+    Route::post('/get-package','PackageController@getPackage');
+    Route::get('/pin-verify','PinVerificationController@index');
+    Route::get('/profile','ProfileController@index');
+    Route::post('/profile','ProfileController@update')->name('frontend.profile');
+    Route::post('/pin-verify','PinVerificationController@pinVerify')->name('pin_verify');
+
 });

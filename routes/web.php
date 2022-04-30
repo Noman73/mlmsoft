@@ -36,6 +36,7 @@ Route::group([
     'namespace' => 'App\Http\Controllers\Admin',
 ],function () {
     Route::resource('/customer','CustomerController');
+    Route::resource('/package','PackageController');
     Route::get('/pin_generate','GeneratePinCodeController@index')->name('pin_generate.index');
     Route::post('/pin_generate','GeneratePinCodeController@store')->name('pin_generate.store');
     Route::get('/pin_generate/{id}','GeneratePinCodeController@edit')->name('pin_generate.edit');

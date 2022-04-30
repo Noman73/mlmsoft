@@ -12,10 +12,10 @@
                     {{-- <li><a href="index2.html">Dashboard 2</a></li> --}}
                 {{-- </ul> --}}
             {{-- </li> --}}
-            <li><a href="{{URL::to('admin/customer')}}" aria-expanded="false"><i class="icon icon-globe-2"></i><span
-                class="nav-text">Customer</span></a></li>
-            <li><a href="{{URL::to('admin/pin_generate')}}" aria-expanded="false"><i class="icon icon-globe-2"></i><span
-                class="nav-text">Pin Generate</span></a></li>
+            <li><a href="{{URL::to('/pin-verify')}}" aria-expanded="false"><i class="icon icon-globe-2"></i><span
+                class="nav-text">Profile</span></a></li>
+            <li><a href="{{URL::to('/pin-verify')}}" aria-expanded="false"><i class="icon icon-globe-2"></i><span
+                class="nav-text">Pin Verify</span></a></li>
             <li class="nav-label">Apps</li>
             <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
                         class="icon icon-app-store"></i><span class="nav-text">Apps</span></a>

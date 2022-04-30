@@ -38,7 +38,9 @@
 
 window.formRequest= function(){
     $('input,select').removeClass('is-invalid');
+    $('.invalid-feedback').addClass('hide');
     let name=$('#name').val();
+    let username=$('#username').val();
     let email=$('#email').val();
     let city=$('#city').val();
     let post_code=$('#post_code').val();
@@ -49,12 +51,23 @@ window.formRequest= function(){
     let refference=$('#refference').val();
     let uplink=$('#uplink').val();
     let position=$('#position').val();
+    let package=$('#package').val();
     let password=$('#password').val();
     let password_confirmation=$('#confirm_password').val();
-    let image=document.getElementById('file').files;
     let id=$('#id').val();
+
+    if(refference==null){
+      refference='';
+    }
+    if(uplink==null){
+      uplink='';
+    }
+    if(package==null){
+      package='';
+    }
     let formData= new FormData();
     formData.append('name',name);
+    formData.append('username',username);
     formData.append('email',email);
     formData.append('city',city);
     formData.append('post_code',post_code);
@@ -65,11 +78,10 @@ window.formRequest= function(){
     formData.append('uplink',uplink);
     formData.append('position',position);
     formData.append('dateofbirth',dateofbirth);
+    formData.append('package',package);
     formData.append('password',password);
     formData.append('password_confirmation',password_confirmation);
-    if(image[0]!=null){
-      formData.append('image',image[0]);
-    }
+  
     $('#exampleModalLabel').text('Edit Customer');
     if(id!=''){
       formData.append('_method','PUT');
@@ -83,12 +95,13 @@ window.formRequest= function(){
                 // datatable.ajax.reload();
                 Clear();
                 $('#modal').modal('hide');
-
                 $('#message').text(response.data.response);
+
             }else if(response.data.error){
               var keys=Object.keys(response.data.error);
               keys.forEach(function(d){
                 $('#'+d).addClass('is-invalid');
+                $('#'+d+'_msg').removeClass('hide');
                 $('#'+d+'_msg').text(response.data.error[d][0]);
               })
             }
@@ -182,7 +195,7 @@ function Clear(){
   $("input").removeClass('is-invalid').val('');
   $(".invalid-feedback").text('');
   $('input').val('');
-  $("select[name='status']").val('');
+  $("select").val(null).trigger('change');
   $("select[name='role']").text('Select').trigger('change');
 }
 $("#refference").select2({
@@ -233,5 +246,28 @@ $("#refference").select2({
       cache:true,
     }
   })
-
+$("#package").select2({
+    theme:'bootstrap4',
+    placeholder:'Select',
+    allowClear:true,
+    ajax:{
+      url:"{{URL::to('/get-package')}}",
+      type:'post',
+      dataType:'json',
+      delay:20,
+      data:function(params){
+        return {
+          searchTerm:params.term,
+          _token:"{{csrf_token()}}",
+          }
+      },
+      processResults:function(response){
+        
+        return {
+          results:response,
+        }
+      },
+      cache:true,
+    }
+  })
 </script>

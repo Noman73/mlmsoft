@@ -29,12 +29,21 @@
     <link href="{{asset('storage/registration/css/main.css')}}" rel="stylesheet" media="all">
     <link href="{{asset('storage/assets2/vendor/select2/css/select2.min.css')}}" rel="stylesheet">
     <link href="{{asset('storage/assets2/vendor/select2-bootstrap4-theme/dist/select2-bootstrap4.min.css')}}" rel="stylesheet">
+    <link href="{{asset('storage/assets2/vendor/toastr/css/toastr.min.css')}}" rel="stylesheet">
+    <link href="{{asset('storage/assets2/vendor/sweetalert2/dist/sweetalert2.min.css')}}" rel="stylesheet">
     <style>
       .form-control{
         width:100%;
       }
       .is-invalid{
         border: 1px solid red;
+      }
+      .invalid-feedback{
+          color:red;
+          font-size:12px;
+      }
+      .hide{
+          display: none;
       }
     </style>
 </head>
@@ -52,61 +61,36 @@
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Full Name</label>
-                                    <input class="input--style-4" type="text" name="name" id="name">
+                                    <input class="input--style-4" type="text" name="name" id="name" placeholder="Enter Name">
+                                    <div class="invalid-feedback hide" id="name_msg"></div>
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">Email</label>
-                                    <input class="input--style-4" type="text" name="email" id="email"> 
+                                    <label class="label">Username</label>
+                                    <input class="input--style-4" type="text" name="username" id="username" placeholder="Enter Username">
+                                    <div class="invalid-feedback hide" id="username_msg"></div>
                                 </div>
                             </div>
                         </div>
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">Birthday</label>
-                                    <div class="input-group-icon">
-                                        <input class="input--style-4 js-datepicker" type="text" name="dateofbirth" id="dateofbirth">
-                                        <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
-                                    </div>
+                                    <label class="label">Email</label>
+                                    <input class="input--style-4" type="text" name="email" id="email" placeholder="Enter Email">
+                                    <div class="invalid-feedback hide" id="email_msg"></div>
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Phone Number</label>
-                                    <input class="input--style-4" type="number" name="phone" id="phone">
+                                    <input class="input--style-4" type="number" name="phone" id="phone" placeholder="Enter Phone Number">
+                                    <div class="invalid-feedback hide" id="phone_msg"></div>
                                 </div>
                             </div>
                         </div>
-                        <div class="row row-space">
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Nid</label>
-                                    <input class="input--style-4" type="text" name="nid" id="nid">
-                                </div>
-                            </div>
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">City</label>
-                                    <input class="input--style-4" type="text" name="city" id="city">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row row-space">
-                          <div class="col-2">
-                              <div class="input-group">
-                                  <label class="label">Post Code</label>
-                                  <input class="input--style-4" type="email" name="post_code" id="post_code" >
-                              </div>
-                          </div>
-                          <div class="col-2">
-                              <div class="input-group">
-                                  <label class="label">Adress</label>
-                                  <input class="input--style-4" type="text" name="adress" id="adress">
-                              </div>
-                          </div>
-                        </div>
+                        
+                        
                         <div class="row row-space">
                           <div class="col-2">
                             <div class="input-group">
@@ -114,6 +98,7 @@
                                 <div>
                                     <select name="subject" id="refference" class="form-control">
                                     </select>
+                                    <div class="invalid-feedback hide" id="refference_msg"></div>
                                 </div>
                             </div>
                           </div>
@@ -123,24 +108,12 @@
                                 <div>
                                     <select name="subject" id="uplink" class="form-control">
                                     </select>
+                                    <div class="invalid-feedback hide" id="uplink_msg"></div>
                                 </div>
                             </div>
                           </div>
                         </div>
-                        <div class="row row-space">
-                          <div class="col-2">
-                            <div class="input-group">
-                                <label class="label">Password</label>
-                                <input class="input--style-4" type="text" name="password" id="password">
-                            </div>
-                          </div>
-                          <div class="col-2">
-                            <div class="input-group">
-                                <label class="label">Confirm Password</label>
-                                <input class="input--style-4" type="text" name="confirm_password" id="confirm_password">
-                            </div>
-                          </div>
-                        </div>
+                        
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
@@ -152,18 +125,39 @@
                                             <option value="1">Right</option>
                                         </select>
                                         <div class="select-dropdown"></div>
+                                    <div class="invalid-feedback hide" id="position_msg"></div>
+
                                     </div>
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">Image</label>
+                                    <label class="label">Package</label>
                                     <div>
-                                        <input type="file" class="form-control" id="file">
+                                        <select name="subject" id="package" class="form-control">
+                                        </select>
+                                        <div class="invalid-feedback hide" id="package_msg"></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <div class="row row-space">
+                            <div class="col-2">
+                              <div class="input-group">
+                                  <label class="label">Password</label>
+                                  <input class="input--style-4" type="password" name="password" id="password" placeholder="Enter Password">
+                                  <div class="invalid-feedback hide" id="password_msg"></div>
+                              </div>
+                            </div>
+                            <div class="col-2">
+                              <div class="input-group">
+                                  <label class="label">Confirm Password</label>
+                                  <input class="input--style-4" type="password" name="confirm_password" id="confirm_password" placeholder="Enter Confirm Password">
+                                  <div class="invalid-feedback hide" id="confirm_password_msg"></div>
+
+                              </div>
+                            </div>
+                          </div>
                         <div class="p-t-15">
                             <button class="btn btn--radius-2 btn--blue" onclick="event.preventDefault();formRequest()">Submit</button>
                         </div>
@@ -184,6 +178,8 @@
     <script src="{{asset('storage/registration/js/global.js')}}"></script>
     <script src="{{asset('storage/assets2/vendor/select2/js/select2.full.min.js')}}"></script>
     <script src="{{asset('storage/assets2/vendor/axios/dist/axios.min.js')}}"></script>
+    <script src="{{asset('storage/assets2/vendor/toastr/js/toastr.min.js')}}"></script>
+    <script src="{{asset('storage/assets2/vendor/sweetalert2/dist/sweetalert2.min.js')}}"></script>
     @include('frontend.registration.internal-assets.js.script')
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 </html>

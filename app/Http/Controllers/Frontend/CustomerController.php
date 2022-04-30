@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Validator;
 use Hash;
+use App\Rules\UplinkRule;
 class CustomerController extends Controller
 {
     /**
@@ -17,7 +18,7 @@ class CustomerController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth');
+        // $this->middleware('auth');
     }
     public function index()
     {
@@ -59,22 +60,25 @@ class CustomerController extends Controller
         // return $request->all();
         $validator=Validator::make($request->all(),[
             'name'=>"required|max:200|min:1",
-            'email'=>"nullable|email|max:200|min:1",
+            'username'=>"required|max:200|min:1|unique:users,username",
+            'email'=>"required|email|max:200|min:1|unique:users,email",
             'phone'=>"required|max:200|min:1",
             'city'=>"nullable|max:200|min:1",
             'post_code'=>"nullable|max:200|min:1",
             'adress'=>"nullable|max:200|min:1",
             'nid'=>"nullable|max:200|min:1",
-            'refference'=>"nullable|max:200|min:1",
-            'uplink'=>"nullable|max:200|min:1",
-            'position'=>"nullable|max:200|min:1",
+            'refference'=>"required|max:200|min:1",
+            'uplink'=>["required","max:200","min:1",new UplinkRule],
+            'position'=>"required|max:200|min:1",
             'dateofbirth'=>"nullable|max:200|min:1",
+            'package'=>"required|max:200|min:1",
             'password'=>"required|max:100|min:6|confirmed",
             'image'=>'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
         ]);
         if($validator->passes()){
             $customer=new User;
             $customer->name=$request->name;
+            $customer->username=$request->username;
             $customer->email=$request->email;
             $customer->city=$request->city;
             $customer->post_code=$request->post_code;
@@ -84,9 +88,10 @@ class CustomerController extends Controller
             $customer->refferance_id=$request->refference;
             $customer->uplink_id=$request->uplink;
             $customer->position=$request->position;
+            $customer->package_id=$request->package;
             $customer->dateofbirth=strtotime($request->dateofbirth);
             $customer->password=Hash::make($request->password);
-            $customer->author_id=auth()->user()->id;
+            // $customer->author_id=auth()->user()->id;
             if ($request->hasFile('image')) {
                 $ext = $request->image->getClientOriginalExtension();
                 $name =auth()->user()->id  .'_'. time() . '.' . $ext;
