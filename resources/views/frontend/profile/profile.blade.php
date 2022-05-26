@@ -55,7 +55,7 @@
                 <form action="{{route('frontend.profile')}}" method="POST" enctype="multipart/form-data">
                   @csrf
                   <div class="text-center">
-                    <img id="imagex" src="{{asset('storage/admin-lte/dist/img/avatar5.png')}}" class="d-flex image-upload" style="height:100px;width:100px;">
+                    <img id="imagex" src="{{( auth()->user()->image==null ? asset('storage/img/man.png') : asset('storage/customer/'.auth()->user()->image) )}} " class="d-flex image-upload" style="height:100px;width:100px;">
                     <input class="d-none" type="file" id="file" name="image" onchange="readURL(this)">
                     <label for="file"  class="file">Choose</label>
                     <div id="photo_msg" class="invalid-feedback">
@@ -89,7 +89,7 @@
                       <div class="col-12 col-md-6">
                         <div class="form-group">
                             <label for="">Birth Date</label>
-                            <input type="text" id="dateofbirth" name="dateofbirth" class="form-control" placeholder="Enter Birth Date" value="{{auth()->user()->dateofbirth}}">
+                            <input type="text" id="dateofbirth" name="dateofbirth" class="form-control" placeholder="Enter Birth Date" value="{{date('d-m-Y',auth()->user()->dateofbirth)}}">
                         </div>
                       </div>
                   </div>

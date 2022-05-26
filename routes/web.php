@@ -16,7 +16,7 @@ include('frontend.php');
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::get('/test',[App\Http\Controllers\Frontend\HomeController::class, 'index']);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\Frontend\HomeController::class, 'index'])->name('home');

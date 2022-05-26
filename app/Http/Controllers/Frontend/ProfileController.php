@@ -19,7 +19,7 @@ class ProfileController extends Controller
     }
     public function update(Request $request)
     {
-        // return $request->all();
+        return $request->all();
         $validator=Validator::make($request->all(),[
             'city'=>"required|max:200|min:1",
             'post_code'=>"nullable|max:200|min:1",

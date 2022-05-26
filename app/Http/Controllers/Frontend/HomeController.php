@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use App\Models\User;
 class HomeController extends Controller
 {
     public function __construct()
@@ -13,6 +13,7 @@ class HomeController extends Controller
     }
     public function index()
     {
-        return view('frontend.dashboard.dashboard');
+        $total_sale=User::where('refferance_id',auth()->user()->id)->count();
+        return view('frontend.dashboard.dashboard',compact('total_sale'));
     }
 }

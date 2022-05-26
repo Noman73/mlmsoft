@@ -42,12 +42,7 @@ window.formRequest= function(){
     let name=$('#name').val();
     let username=$('#username').val();
     let email=$('#email').val();
-    let city=$('#city').val();
-    let post_code=$('#post_code').val();
-    let adress=$('#adress').val();
     let phone=$('#phone').val();
-    let nid=$('#nid').val();
-    let dateofbirth=$('#dateofbirth').val();
     let refference=$('#refference').val();
     let uplink=$('#uplink').val();
     let position=$('#position').val();
@@ -69,15 +64,10 @@ window.formRequest= function(){
     formData.append('name',name);
     formData.append('username',username);
     formData.append('email',email);
-    formData.append('city',city);
-    formData.append('post_code',post_code);
-    formData.append('adress',adress);
     formData.append('phone',phone);
-    formData.append('nid',nid);
     formData.append('refference',refference);
     formData.append('uplink',uplink);
     formData.append('position',position);
-    formData.append('dateofbirth',dateofbirth);
     formData.append('package',package);
     formData.append('password',password);
     formData.append('password_confirmation',password_confirmation);

@@ -13,5 +13,7 @@ Route::group([
     Route::get('/profile','ProfileController@index');
     Route::post('/profile','ProfileController@update')->name('frontend.profile');
     Route::post('/pin-verify','PinVerificationController@pinVerify')->name('pin_verify');
+    Route::get('/tree/{id}','TreeController@index');
+    Route::get('/test/xyz','TestController@index');
 
 });

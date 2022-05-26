@@ -31,7 +31,7 @@
                     </div>
                     <div class="stat-content dib">
                         <div class="stat-text">Total Sale</div>
-                        <div class="stat-digit">1</div>
+                        <div class="stat-digit">{{$total_sale}}</div>
                     </div>
                 </div>
             </div>
