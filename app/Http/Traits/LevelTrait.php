@@ -3,7 +3,8 @@ namespace App\Http\Traits;
 
 use App\Models\User;
 use DB;
-trait CountTrait{
+
+trait LevelTrait{
 
     private $level;
     private $total;

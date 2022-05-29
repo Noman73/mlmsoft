@@ -15,5 +15,6 @@ Route::group([
     Route::post('/pin-verify','PinVerificationController@pinVerify')->name('pin_verify');
     Route::get('/tree/{id}','TreeController@index');
     Route::get('/test/xyz','TestController@index');
+    Route::get('/sale_count_all','MatchingSaleController@saleCount');
 
 });
