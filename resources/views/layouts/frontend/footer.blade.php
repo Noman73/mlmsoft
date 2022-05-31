@@ -1,26 +1,32 @@
 
-<!-- jquery vendor -->
-{{-- <script src="{{asset('storage/assets/js/lib/jquery.min.js')}}"></script>
-<script src="{{asset('storage/assets/js/lib/jquery.nanoscroller.min.js')}}"></script>
-<!-- nano scroller -->
-<script src="{{asset('storage/assets/js/lib/menubar/sidebar.js')}}"></script>
-<script src="{{asset('storage/assets/js/lib/preloader/pace.min.js')}}"></script> --}}
-<!-- sidebar -->
+    <script src="{{asset('storage/assets2/js/lib/jquery.min.js')}}"></script>
+    <script src="{{asset('storage/assets2/js/lib/jquery.nanoscroller.min.js')}}"></script>
+    <!-- nano scroller -->
+    <script src="{{asset('storage/assets2/js/lib/menubar/sidebar.js')}}"></script>
+    <script src="{{asset('storage/assets2/js/lib/preloader/pace.min.js')}}"></script>
+    <!-- sidebar -->
 
-<!-- bootstrap -->
+    <script src="{{asset('storage/assets2/js/lib/bootstrap.min.js')}}"></script>
+    <script src="{{asset('storage/assets2/js/scripts.js')}}"></script>
+    <!-- bootstrap -->
 
-{{-- 
-<script src="{{asset('storage/assets/js/lib/bootstrap.min.js')}}">
-</script>
-<script src="{{asset('storage/assets/js/lib/popper.min.js')}}">
-</script>
-<script src="{{asset('storage/assets/js/scripts.js')}}"></script> --}}
-<script src="{{asset('storage/assets2/vendor/global/global.min.js')}}"></script>
-<script src="{{asset('storage/assets2/js/quixnav-init.js')}}"></script>
-<script src="{{asset('storage/assets2/js/custom.min.js')}}"></script>
-<script src="{{asset('storage/assets2/vendor/moment/moment.min.js')}}"></script>
-<script src="{{asset('storage/assets2/vendor/daterangepicker/daterangepicker.js')}}"></script>
-<script src="{{asset('storage/assets2/vendor/toastr/js/toastr.min.js')}}"></script>
-<script src="{{asset('storage/assets2/vendor/sweetalert2/dist/sweetalert2.min.js')}}"></script>
-<script src="{{asset('storage/assets2/vendor/select2/js/select2.full.min.js')}}"></script>
+    <script src="{{asset('storage/assets2/js/lib/calendar-2/moment.latest.min.js')}}"></script>
+    <script src="{{asset('storage/assets2/js/lib/calendar-2/pignose.calendar.min.js')}}"></script>
+    <script src="{{asset('storage/assets2/js/lib/calendar-2/pignose.init.js')}}"></script>
+
+
+    <script src="{{asset('storage/assets2/js/lib/weather/jquery.simpleWeather.min.js')}}"></script>
+    <script src="{{asset('storage/assets2/js/lib/weather/weather-init.js')}}"></script>
+    <script src="{{asset('storage/assets2/js/lib/circle-progress/circle-progress.min.js')}}"></script>
+    <script src="{{asset('storage/assets2/js/lib/circle-progress/circle-progress-init.js')}}"></script>
+    <script src="{{asset('storage/assets2/js/lib/chartist/chartist.min.js')}}"></script>
+    <script src="{{asset('storage/assets2/js/lib/sparklinechart/jquery.sparkline.min.js')}}"></script>
+    <script src="{{asset('storage/assets2/js/lib/sparklinechart/sparkline.init.js')}}"></script>
+    <script src="{{asset('storage/assets2/js/lib/owl-carousel/owl.carousel.min.js')}}"></script>
+    <script src="{{asset('storage/assets2/js/lib/owl-carousel/owl.carousel-init.js')}}"></script>
+    <script src="{{asset('storage/assets/vendor/select2/js/select2.min.js')}}"></script>
+    <!-- scripit init-->
+    <script src="{{asset('storage/assets2/js/dashboard2.js')}}"></script>
 @yield('script')
+</body>
+</html>

@@ -7,6 +7,8 @@ Route::group([
     'namespace' => 'App\Http\Controllers\Frontend',
 ],function () {
     Route::resource('/registration','CustomerController');
+    Route::resource('/matching','MatchingSaleController');
+    Route::resource('/withdraw','WithdrawController');
     Route::post('/get-refferal','CustomerController@getCustomer');
     Route::post('/get-package','PackageController@getPackage');
     Route::get('/pin-verify','PinVerificationController@index');

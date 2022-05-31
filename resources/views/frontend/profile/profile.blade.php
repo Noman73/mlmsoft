@@ -22,85 +22,95 @@
   </style>
  @endsection
  @section('content')
-    <!-- Content Header (Page header) -->
-          <div class="row page-titles mx-0">
-              <div class="col-sm-6 p-md-0">
-                  <div class="welcome-text">
-                      <h4>Profile</h4>
-                  </div>
-              </div>
-              <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
-                  <ol class="breadcrumb">
-                      <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                      <li class="breadcrumb-item active"><a href="javascript:void(0)">Profile</a></li>
-                  </ol>
-              </div>
-          </div>
-    <!-- /.content-header -->
-    <!-- Main content -->
-    <section class="content">
+ <div class="content-wrap">
+  <div class="main">
       <div class="container-fluid">
-        <div class="card ">
-            <div class="card-header">
-              <div class="container-fluid">
+          <div class="row">
+              <div class="col-lg-8 p-r-0 title-margin-right">
+                  <div class="page-header">
+                      <div class="page-title">
+                          <h1>Profile </h1>
+                      </div>
+                  </div>
               </div>
-            </div>
-            <div class="card-body">
-                @if($errors->has('pin'))
-                    <div class="alert alert-danger">{{ $errors->first('pin') }}</div>
-                @endif
-                @if(session('message'))
-                <div class="alert alert-success">{{session('message')}}</div>
-                @endif
-                <form action="{{route('frontend.profile')}}" method="POST" enctype="multipart/form-data">
-                  @csrf
-                  <div class="text-center">
-                    <img id="imagex" src="{{( auth()->user()->image==null ? asset('storage/img/man.png') : asset('storage/customer/'.auth()->user()->image) )}} " class="d-flex image-upload" style="height:100px;width:100px;">
-                    <input class="d-none" type="file" id="file" name="image" onchange="readURL(this)">
-                    <label for="file"  class="file">Choose</label>
-                    <div id="photo_msg" class="invalid-feedback">
-                    </div>
-                  </div>
-                  <div class="row">
-                      <div class="col-12 col-md-6">
-                        <div class="form-group">
-                            <label for="">City</label>
-                            <input type="text" id="city" name="city" class="form-control" placeholder="Enter City Name" value="{{auth()->user()->city}}">
-                        </div>
-                      </div>
-                      <div class="col-12 col-md-6">
-                        <div class="form-group">
-                            <label for="">Post Code</label>
-                            <input type="number" id="post_code" name="post_code" class="form-control" placeholder="Enter Post Code" value="{{auth()->user()->post_code}}">
-                        </div>
-                      </div>
-                      <div class="col-12 col-md-6">
-                        <div class="form-group">
-                            <label for="">Adress</label>
-                            <input type="text" id="adress" name="adress" class="form-control" placeholder="Enter Adress" value="{{auth()->user()->adress}}">
-                        </div>
-                      </div>
-                      <div class="col-12 col-md-6">
-                        <div class="form-group">
-                            <label for="">NID</label>
-                            <input type="number" id="nid" name="nid" class="form-control" placeholder="Enter NID Number" value="{{auth()->user()->nid}}">
-                        </div>
-                      </div>
-                      <div class="col-12 col-md-6">
-                        <div class="form-group">
-                            <label for="">Birth Date</label>
-                            <input type="text" id="dateofbirth" name="dateofbirth" class="form-control" placeholder="Enter Birth Date" value="{{date('d-m-Y',auth()->user()->dateofbirth)}}">
-                        </div>
+              <!-- /# column -->
+              <div class="col-lg-4 p-l-0 title-margin-left">
+                  <div class="page-header">
+                      <div class="page-title">
+                          <ol class="breadcrumb">
+                              <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                              <li class="breadcrumb-item active">Home</li>
+                          </ol>
                       </div>
                   </div>
-                 
-                  <button class="btn btn-primary">Submit</button>
-                </form>
-            </div>
+              </div>
+              <!-- /# column -->
           </div>
-      </div><!-- /.container-fluid -->
- 
-    </section>
+          <!-- /# row -->
+          <section id="main-content">
+            <div class="container-fluid">
+              <div class="card ">
+                  {{-- <div class="card-header">
+                    <div class="container-fluid">
+                    </div>
+                  </div> --}}
+                  <div class="card-body">
+                      @if($errors->has('pin'))
+                          <div class="alert alert-danger">{{ $errors->first('pin') }}</div>
+                      @endif
+                      @if(session('message'))
+                      <div class="alert alert-success">{{session('message')}}</div>
+                      @endif
+                      <form action="{{route('frontend.profile')}}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="text-center">
+                          <img id="imagex" src="{{( auth()->user()->image==null ? asset('storage/img/man.png') : asset('storage/customer/'.auth()->user()->image) )}} " class="d-flex image-upload" style="height:100px;width:100px;">
+                          <input class="d-none" type="file" id="file" name="image" onchange="readURL(this)">
+                          <label for="file"  class="file">Choose</label>
+                          <div id="photo_msg" class="invalid-feedback">
+                          </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-6">
+                              <div class="form-group">
+                                  <label for="">City</label>
+                                  <input type="text" id="city" name="city" class="form-control" placeholder="Enter City Name" value="{{auth()->user()->city}}">
+                              </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                              <div class="form-group">
+                                  <label for="">Post Code</label>
+                                  <input type="number" id="post_code" name="post_code" class="form-control" placeholder="Enter Post Code" value="{{auth()->user()->post_code}}">
+                              </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                              <div class="form-group">
+                                  <label for="">Adress</label>
+                                  <input type="text" id="adress" name="adress" class="form-control" placeholder="Enter Adress" value="{{auth()->user()->adress}}">
+                              </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                              <div class="form-group">
+                                  <label for="">NID</label>
+                                  <input type="number" id="nid" name="nid" class="form-control" placeholder="Enter NID Number" value="{{auth()->user()->nid}}">
+                              </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                              <div class="form-group">
+                                  <label for="">Birth Date</label>
+                                  <input type="text" id="dateofbirth" name="dateofbirth" class="form-control" placeholder="Enter Birth Date" value="{{date('d-m-Y',auth()->user()->dateofbirth)}}">
+                              </div>
+                            </div>
+                        </div>
+                       
+                        <button class="btn btn-primary">Submit</button>
+                      </form>
+                  </div>
+                </div>
+            </div><!-- /.container-fluid -->
+          </section>
+
+
   @endsection
 
   @section('script')

@@ -29,7 +29,7 @@
               <div class="col-lg-8 p-r-0 title-margin-right">
                   <div class="page-header">
                       <div class="page-title">
-                          <h1>Profile </h1>
+                          <h1>Withdraw </h1>
                       </div>
                   </div>
               </div>
@@ -38,8 +38,8 @@
                   <div class="page-header">
                       <div class="page-title">
                           <ol class="breadcrumb">
-                              <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                              <li class="breadcrumb-item active">Home</li>
+                              <li class="breadcrumb-item"><a href="#">Home</a></li>
+                              <li class="breadcrumb-item active">Withdraw</li>
                           </ol>
                       </div>
                   </div>
@@ -63,11 +63,9 @@
                       <thead>
                         <tr>
                           <th>SL</th>
-                          <th>Title</th>
-                          <th>Description</th>
+                          <th>Date</th>
                           <th>Ammount</th>
                           <th>Status</th>
-                          <th>Action</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -87,43 +85,26 @@
                     </button>
                   </div>
                   <div class="modal-body">
-                    <form>
+                    <form  method="POST" id="withdraw-form">
+                      @csrf
                       <input type="hidden" id="id">
                       <div class="row text-dark">
                         <div class="col-md-8 mr-auto ml-auto">
                           <div class="form-group">
-                            <label for="recipient-name" class="col-form-label">Title:</label>
-                            <input type="text" class="form-control" id="title" placeholder="Enter Title">
-                            <div class="invalid-feedback" id="title_msg">
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-md-8 mr-auto ml-auto">
-                          <div class="form-group">
-                            <label for="message-text" class="col-form-label">Description:</label>
-                            <textarea rows='3' id="description" class="form-control" placeholder="Description"></textarea>
-                            <div class="invalid-feedback" id="description_msg">
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-md-8 mr-auto ml-auto">
-                          <div class="form-group">
                             <label for="message-text" class="col-form-label">Ammount:</label>
-                            <input type="number" class="form-control" id="ammount" placeholder="0.00">
+                            <input type="number" class="form-control" id="ammount" placeholder="0.00" name="ammount">
                             <div class="invalid-feedback" id="ammount_msg">
                             </div>
                           </div>
                         </div>
                         <div class="col-md-8 mr-auto ml-auto">
                           <div class="form-group">
-                            <input type="radio"  name="action[]" id="active" value="1" checked>
-                            <label for="cash">Active</label>
-                            <input type="radio"  name="action[]" id="deactive" value="0">
-                            <label for="walking">Deactive</label>
-                            <div class="invalid-feedback" id='status_msg'></div>
+                            <label for="message-text" class="col-form-label">Password:</label>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="">
+                            <div class="invalid-feedback" id="password_msg">
+                            </div>
                           </div>
                         </div>
-                        {{-- </div> --}}
                       </div>
                     </form>
                   </div>
@@ -145,6 +126,13 @@
   <script src="{{asset('storage/adminlte/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
   <script src="{{asset('storage/adminlte/plugins/datatables-responsive/js/responsive.bootstrap4.min.js')}}"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.0/axios.min.js" integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  @include('backend.package.internal-assets.js.script')
+  @include('frontend.withdraw.internal-assets.js.script')
+
+  <script>
+    function formSubmit(){
+      var withdrawForm=document.getElementById('withdraw-form');
+      withdrawForm.submit();
+    }
+  </script>
   
   @endsection

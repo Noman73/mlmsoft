@@ -1,11 +1,12 @@
  <!-- Content Wrapper. Contains page content -->
  @extends('layouts.admin.master')
  @section('link')
- <link rel="stylesheet" href="{{asset('storage/assets2/vendor/datatables/css/jquery.dataTables.min.css')}}">
+ <link rel="stylesheet" href="{{asset('storage/assets/vendor/datatables/css/jquery.dataTables.min.css')}}">
  {{-- <link rel="stylesheet" href="{{asset('storage/assets2/vendor/datatables-bs4/dataTables.bootstrap4.min.css')}}"> --}}
+
   
   <style>
-    .file {
+  .file {
       border: 1px solid #ccc;
       display: inline-block;
       width: 100px;
@@ -22,23 +23,34 @@
   </style>
  @endsection
  @section('content')
-    <!-- Content Header (Page header) -->
-    
-          <div class="row page-titles mx-0">
-              <div class="col-sm-6 p-md-0">
-                  <div class="welcome-text">
-                      <h4>Pin Generate</h4>
+ <div class="content-wrap">
+  <div class="main">
+      <div class="container-fluid">
+          <div class="row">
+              <div class="col-lg-8 p-r-0 title-margin-right">
+                  <div class="page-header">
+                      <div class="page-title">
+                          <h1>Profile </h1>
+                      </div>
                   </div>
               </div>
-              <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
-                  <ol class="breadcrumb">
-                      <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                      <li class="breadcrumb-item active"><a href="javascript:void(0)">Pin Generate</a></li>
-                  </ol>
+              <!-- /# column -->
+              <div class="col-lg-4 p-l-0 title-margin-left">
+                  <div class="page-header">
+                      <div class="page-title">
+                          <ol class="breadcrumb">
+                              <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                              <li class="breadcrumb-item active">Home</li>
+                          </ol>
+                      </div>
+                  </div>
               </div>
+              <!-- /# column -->
           </div>
-    <!-- /.content-header -->
-    <!-- Main content -->
+          <section id="main-content">
+
+          </section>
+
     <section class="content">
       <div class="container-fluid">
 
@@ -83,7 +95,7 @@
                   <div class="col-md-8 mr-auto ml-auto"> 
                     <div class="form-group ">
                       <label for="message-text" class="col-form-label">Customer:</label>
-                      <select name="customer" id="customer" class="form-control border"></select>
+                      <select name="customer" id="customer" class="form-control  border"></select>
                       <div class="invalid-feedback" id="customer_msg">
                       </div>
                     </div>
@@ -112,7 +124,7 @@
   @endsection
 
   @section('script')
-  <script src="{{asset('storage/assets2/vendor/datatables/js/jquery.dataTables.min.js')}}"></script>
+  <script src="{{asset('storage/assets/vendor/datatables/js/jquery.dataTables.min.js')}}"></script>
   <script src="{{asset('storage/adminlte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
   <script src="{{asset('storage/adminlte/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
   <script src="{{asset('storage/adminlte/plugins/datatables-responsive/js/responsive.bootstrap4.min.js')}}"></script>

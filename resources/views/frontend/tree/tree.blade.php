@@ -132,163 +132,171 @@
 }
  </style>
 @endsection
- <!-- Content Header (Page header) -->
-              <div class="content-header">
-                <div class="container-fluid">
-                  <div class="row mb-2">
-                    <div class="col-sm-6">
-                      <h1 class="m-0">Tree View</h1>
-                    </div><!-- /.col -->
-                    <div class="col-sm-6">
-                      <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Tree view</li>
-                      </ol>
-                    </div><!-- /.col -->
-                  </div><!-- /.row -->
-                </div><!-- /.container-fluid -->
+<div class="content-wrap">
+  <div class="main">
+      <div class="container-fluid">
+          <div class="row">
+              <div class="col-lg-8 p-r-0 title-margin-right">
+                  <div class="page-header">
+                      <div class="page-title">
+                          <h1>Tree View</h1>
+                      </div>
+                  </div>
               </div>
-              <!-- /.content-header -->
+              <!-- /# column -->
+              <div class="col-lg-4 p-l-0 title-margin-left">
+                  <div class="page-header">
+                      <div class="page-title">
+                          <ol class="breadcrumb">
+                              <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                              <li class="breadcrumb-item active">Home</li>
+                          </ol>
+                      </div>
+                  </div>
+              </div>
+              <!-- /# column -->
+          </div>
+          <!-- /# row -->
 
-              <!-- Main content -->
-<section class="content">
-<div class="container-fluid">
-  <!-- Small boxes (Stat box) -->
-    <div class="row">
-      <div class="col-md-12">
-        <div class="card">
-          <div class="card-body">
-            <div class="tree">
-              <div class="body genealogy-body genealogy-scroll">
-              <div class="genealogy-tree">
-                  <ul>
-                      <li>
-                          <a href="">
-                              <div class="member-view-box">
-                                  <div class="member-image">
-                                      <img src="{{asset('storage/img/man.png')}}" alt="Member">
-                                      <div class="status {{($owner==null ? 'text-danger' : 'text-success' )}}">
-                                        <i class="fas {{($owner==null? 'fa-times-circle' : 'fa-check-circle' )}}"></i>
-                                      </div>
-                                      <div class="member-details">
-                                          <h6>{{($owner==null? 'unknown' : $owner->username )}}</h6>
-                                      </div>
-                                  </div>
-                              </div>
-                          </a>
-                          <ul class="active">
-                            {{-- level 1 left side --}}
-                              <li>
-                                  <a href="{{($left==null? '' : URL::to('tree/'.$left->id))}}">
-                                      <div class="member-view-box">
-                                          <div class="member-image">
-                                              <img src="{{asset('storage/img/man.png')}}" alt="Member">
-                                              <div class="status {{($left==null? 'text-danger' : 'text-success' )}}">
-                                                <i class="fas {{($left==null? 'fa-times-circle' : 'fa-check-circle' )}}"></i>
-                                               </div>
-                                              <div class="member-details">
-                                                  <h6>{{($left==null? 'unknown' : $left->username )}}</h6>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </a>
-                                  <ul class="active">
-                                    {{-- level 2 left hand left side --}}
-                                    <li>
-                                        <a href="{{($second_level_left_hand_left_side==null? '' : URL::to('tree/'.$second_level_left_hand_left_side->id))}}">
-                                            <div class="member-view-box">
-                                                <div class="member-image">
-                                                    <img src="{{asset('storage/img/man.png')}}" alt="Member">
-                                                    <div class="status {{($second_level_left_hand_left_side==null? 'text-danger' : 'text-success' )}}">
-                                                      <i class="fas {{($second_level_left_hand_left_side==null? 'fa-times-circle' : 'fa-check-circle' )}}"></i>
-                                                    </div>
-                                                    <div class="member-details">
-                                                        <h6>{{($second_level_left_hand_left_side==null? 'unknown' : $second_level_left_hand_left_side->username )}}</h6>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                     </li>
-                                     {{-- level 2 right hand right --}}
-                                     <li>
-                                          <a href="{{($second_level_left_hand_right_side==null? '' : URL::to('tree/'.$second_level_left_hand_right_side->id))}}">
-                                              <div class="member-view-box">
-                                                  <div class="member-image">
-                                                      <img src="{{asset('storage/img/man.png')}}" alt="Member">
-                                                      <div class="status {{($second_level_left_hand_right_side==null? 'text-danger' : 'text-success' )}}">
-                                                        <i class="fas {{($second_level_left_hand_right_side==null? 'fa-times-circle' : 'fa-check-circle' )}}"></i>
-                                                      </div>
-                                                      <div class="member-details">
-                                                          <h6>{{($second_level_left_hand_right_side==null? 'unknown' : $second_level_left_hand_right_side->username )}}</h6>
-                                                      </div>
+          <section id="main-content">
+            <div class="container-fluid">
+              <!-- Small boxes (Stat box) -->
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="card">
+                      <div class="card-body">
+                        <div class="tree">
+                          <div class="body genealogy-body genealogy-scroll">
+                          <div class="genealogy-tree">
+                              <ul>
+                                  <li>
+                                      <a href="">
+                                          <div class="member-view-box">
+                                              <div class="member-image">
+                                                  <img src="{{asset('storage/img/man.png')}}" alt="Member">
+                                                  <div class="status {{($owner==null ? 'text-danger' : 'text-success' )}}">
+                                                    <i class="fas {{($owner==null? 'fa-times-circle' : 'fa-check-circle' )}}"></i>
+                                                  </div>
+                                                  <div class="member-details">
+                                                      <h6>{{($owner==null? 'unknown' : $owner->username )}}</h6>
                                                   </div>
                                               </div>
-                                          </a>
-                                      </li>
-                                  </ul>
-                              </li>
-                              {{-- level 1 right --}}
-                              <li>
-                                  <a href="{{($right==null? '' : URL::to('tree/'.$right->id))}}">
-                                      <div class="member-view-box">
-                                          <div class="member-image">
-                                              <img src="{{asset('storage/img/man.png')}}" alt="Member">
-                                              <div class="status {{($right==null? 'text-danger' : 'text-success' )}}">
-                                                <i class="fas {{($right==null? 'fa-times-circle' : 'fa-check-circle' )}}"></i>
-                                               </div>
-                                              <div class="member-details">
-                                                  <h6>{{($right==null? 'unknown' : $right->username )}}</h6>
-                                              </div>
                                           </div>
-                                      </div>
-                                  </a>
-                                  <ul class="active">
-                                    {{-- level 2 right hand left side --}}
-                                    <li>
-                                        <a href="{{($second_level_right_hand_left_side==null? '' : URL::to('tree/'.$second_level_right_hand_left_side->id))}}">
-                                            <div class="member-view-box">
-                                                <div class="member-image">
-                                                    <img src="{{asset('storage/img/man.png')}}" alt="Member">
-                                                    <div class="status {{($second_level_right_hand_left_side==null? 'text-danger' : 'text-success' )}}">
-                                                      <i class="fas {{($second_level_right_hand_left_side==null? 'fa-times-circle' : 'fa-check-circle' )}}"></i>
-                                                    </div>
-                                                    <div class="member-details">
-                                                        <h6>{{($second_level_right_hand_left_side==null? 'unknown' : $second_level_right_hand_left_side->username )}}</h6>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    {{-- level 2 right hand right side--}}
-                                    <li>
-                                        <a href="{{($second_level_right_hand_right_side==null? '' : URL::to('tree/'.$second_level_right_hand_right_side->id))}}">
-                                            <div class="member-view-box">
-                                                <div class="member-image">
-                                                    <img src="{{asset('storage/img/man.png')}}" alt="Member">
-                                                    <div class="status {{($second_level_right_hand_right_side==null? 'text-danger' : 'text-success' )}}">
-                                                      <i class="fas {{($second_level_right_hand_right_side==null? 'fa-times-circle' : 'fa-check-circle' )}}"></i>
-                                                    </div>
-                                                    <div class="member-details">
-                                                        <h6>{{($second_level_right_hand_right_side==null? 'unknown' : $second_level_right_hand_right_side->username )}}</h6>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                  </ul>
-                              </li>
-                          </ul>
-                      </li>
-                  </ul>
-              </div>
-          </div>
-    
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        <!-- /.row (main row) -->
-      </div><!-- /.container-fluid -->
-    </section>
+                                      </a>
+                                      <ul class="active">
+                                        {{-- level 1 left side --}}
+                                          <li>
+                                              <a href="{{($left==null? '' : URL::to('tree/'.$left->id))}}">
+                                                  <div class="member-view-box">
+                                                      <div class="member-image">
+                                                          <img src="{{asset('storage/img/man.png')}}" alt="Member">
+                                                          <div class="status {{($left==null? 'text-danger' : 'text-success' )}}">
+                                                            <i class="fas {{($left==null? 'fa-times-circle' : 'fa-check-circle' )}}"></i>
+                                                           </div>
+                                                          <div class="member-details">
+                                                              <h6>{{($left==null? 'unknown' : $left->username )}}</h6>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                              </a>
+                                              <ul class="active">
+                                                {{-- level 2 left hand left side --}}
+                                                <li>
+                                                    <a href="{{($second_level_left_hand_left_side==null? '' : URL::to('tree/'.$second_level_left_hand_left_side->id))}}">
+                                                        <div class="member-view-box">
+                                                            <div class="member-image">
+                                                                <img src="{{asset('storage/img/man.png')}}" alt="Member">
+                                                                <div class="status {{($second_level_left_hand_left_side==null? 'text-danger' : 'text-success' )}}">
+                                                                  <i class="fas {{($second_level_left_hand_left_side==null? 'fa-times-circle' : 'fa-check-circle' )}}"></i>
+                                                                </div>
+                                                                <div class="member-details">
+                                                                    <h6>{{($second_level_left_hand_left_side==null? 'unknown' : $second_level_left_hand_left_side->username )}}</h6>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                 </li>
+                                                 {{-- level 2 right hand right --}}
+                                                 <li>
+                                                      <a href="{{($second_level_left_hand_right_side==null? '' : URL::to('tree/'.$second_level_left_hand_right_side->id))}}">
+                                                          <div class="member-view-box">
+                                                              <div class="member-image">
+                                                                  <img src="{{asset('storage/img/man.png')}}" alt="Member">
+                                                                  <div class="status {{($second_level_left_hand_right_side==null? 'text-danger' : 'text-success' )}}">
+                                                                    <i class="fas {{($second_level_left_hand_right_side==null? 'fa-times-circle' : 'fa-check-circle' )}}"></i>
+                                                                  </div>
+                                                                  <div class="member-details">
+                                                                      <h6>{{($second_level_left_hand_right_side==null? 'unknown' : $second_level_left_hand_right_side->username )}}</h6>
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+                                                      </a>
+                                                  </li>
+                                              </ul>
+                                          </li>
+                                          {{-- level 1 right --}}
+                                          <li>
+                                              <a href="{{($right==null? '' : URL::to('tree/'.$right->id))}}">
+                                                  <div class="member-view-box">
+                                                      <div class="member-image">
+                                                          <img src="{{asset('storage/img/man.png')}}" alt="Member">
+                                                          <div class="status {{($right==null? 'text-danger' : 'text-success' )}}">
+                                                            <i class="fas {{($right==null? 'fa-times-circle' : 'fa-check-circle' )}}"></i>
+                                                           </div>
+                                                          <div class="member-details">
+                                                              <h6>{{($right==null? 'unknown' : $right->username )}}</h6>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                              </a>
+                                              <ul class="active">
+                                                {{-- level 2 right hand left side --}}
+                                                <li>
+                                                    <a href="{{($second_level_right_hand_left_side==null? '' : URL::to('tree/'.$second_level_right_hand_left_side->id))}}">
+                                                        <div class="member-view-box">
+                                                            <div class="member-image">
+                                                                <img src="{{asset('storage/img/man.png')}}" alt="Member">
+                                                                <div class="status {{($second_level_right_hand_left_side==null? 'text-danger' : 'text-success' )}}">
+                                                                  <i class="fas {{($second_level_right_hand_left_side==null? 'fa-times-circle' : 'fa-check-circle' )}}"></i>
+                                                                </div>
+                                                                <div class="member-details">
+                                                                    <h6>{{($second_level_right_hand_left_side==null? 'unknown' : $second_level_right_hand_left_side->username )}}</h6>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                {{-- level 2 right hand right side--}}
+                                                <li>
+                                                    <a href="{{($second_level_right_hand_right_side==null? '' : URL::to('tree/'.$second_level_right_hand_right_side->id))}}">
+                                                        <div class="member-view-box">
+                                                            <div class="member-image">
+                                                                <img src="{{asset('storage/img/man.png')}}" alt="Member">
+                                                                <div class="status {{($second_level_right_hand_right_side==null? 'text-danger' : 'text-success' )}}">
+                                                                  <i class="fas {{($second_level_right_hand_right_side==null? 'fa-times-circle' : 'fa-check-circle' )}}"></i>
+                                                                </div>
+                                                                <div class="member-details">
+                                                                    <h6>{{($second_level_right_hand_right_side==null? 'unknown' : $second_level_right_hand_right_side->username )}}</h6>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                              </ul>
+                                          </li>
+                                      </ul>
+                                  </li>
+                              </ul>
+                          </div>
+                      </div>
+                
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    <!-- /.row (main row) -->
+                  </div><!-- /.container-fluid -->
+          </section>
+
 @endsection

@@ -24,53 +24,65 @@
  @section('content')
     <!-- Content Header (Page header) -->
     
-          <div class="row page-titles mx-0">
-              <div class="col-sm-6 p-md-0">
-                  <div class="welcome-text">
-                      <h4>Package</h4>
+    <div class="content-wrap">
+      <div class="main">
+          <div class="container-fluid">
+              <div class="row">
+                  <div class="col-lg-8 p-r-0 title-margin-right">
+                      <div class="page-header">
+                          <div class="page-title">
+                              <h1>Pin Varify</h1>
+                          </div>
+                      </div>
                   </div>
-              </div>
-              <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
-                  <ol class="breadcrumb">
-                      <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                      <li class="breadcrumb-item active"><a href="javascript:void(0)">Package</a></li>
-                  </ol>
-              </div>
-          </div>
-    <!-- /.content-header -->
-    <!-- Main content -->
-    <section class="content">
-      <div class="container-fluid">
-        <div class="card ">
-            <div class="card-header">
-              <div class="container-fluid">
-              </div>
-            </div>
-            <div class="card-body">
-              @if(auth()->user()->pin_no==null)
-                <p class="text-danger">*After Submitting PIN code your account will activate</p>
-                @if($errors->has('pin'))
-                    <div class="alert alert-danger">{{ $errors->first('pin') }}</div>
-                @endif
-                @if(session('message'))
-                <div class="alert alert-success">{{session('message')}}</div>
-                @endif
-                <form action="{{route('pin_verify')}}" method="POST">
-                  @csrf
-                  <div class="form-group">
-                    <label for="">Pin Verification</label>
-                    <input type="text" id="pin" name="pin" class="form-control" placeholder="Enter PIN Code">
+                  <!-- /# column -->
+                  <div class="col-lg-4 p-l-0 title-margin-left">
+                      <div class="page-header">
+                          <div class="page-title">
+                              <ol class="breadcrumb">
+                                  <li class="breadcrumb-item"><a href="#">Menu</a></li>
+                                  <li class="breadcrumb-item active">Pin Varify</li>
+                              </ol>
+                          </div>
+                      </div>
                   </div>
-                  <button class="btn btn-primary">Submit</button>
-                </form>
-              @else
-              <div class="text-success bg-muted font-weight-bold">Welcome ! Your Account is Activated</div>
-              @endif
-            </div>
-          </div>
-      </div><!-- /.container-fluid -->
- 
-    </section>
+                  <!-- /# column -->
+              </div>
+              <!-- /# row -->
+              <section id="main-content">
+                <div class="container-fluid">
+                  <div class="card ">
+                      <div class="card-header">
+                        <h5>Pin Varify</h5>
+                        <div class="container-fluid">
+                        </div>
+                      </div>
+                      <div class="card-body">
+                        @if(auth()->user()->pin_no==null)
+                          <p class="text-danger">*After Submitting PIN code your account will activate</p>
+                          @if($errors->has('pin'))
+                              <div class="alert alert-danger">{{ $errors->first('pin') }}</div>
+                          @endif
+                          @if(session('message'))
+                          <div class="alert alert-success">{{session('message')}}</div>
+                          @endif
+                          <form action="{{route('pin_verify')}}" method="POST">
+                            @csrf
+                            <div class="form-group">
+                              <label for="">Pin Verification</label>
+                              <input type="text" id="pin" name="pin" class="form-control" placeholder="Enter PIN Code">
+                            </div>
+                            <button class="btn btn-primary">Submit</button>
+                          </form>
+                        @else
+                        <div class="text-success bg-muted font-weight-bold">Welcome ! Your Account is Activated</div>
+                        @endif
+                      </div>
+                    </div>
+                  </div><!-- /.container-fluid -->
+              </section>
+
+
   @endsection
 
   @section('script')
